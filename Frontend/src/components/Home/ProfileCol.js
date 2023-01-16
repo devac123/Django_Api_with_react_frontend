@@ -49,7 +49,7 @@ export default function ProfileCol() {
               </div>
               { /* <!-- Info --> */ }
               <Context.Consumer>
-                {value =>  <><h5 className="mb-0"> <Link to="#!">{value.firstname}</Link> </h5>
+                {value =>  <><h5 className="mb-0"> <Link to="#!">{value?.firstname}</Link> </h5>
               <small>Web Developer at Webestica</small>
               <p className="mt-3">I'd love to change the world, but they won’t give me the source code.</p></> }
               </Context.Consumer>
