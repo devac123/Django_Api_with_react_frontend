@@ -1,0 +1,26 @@
+{
+    "0": {
+        "userId" : "0",
+        "post": {
+            "post_title":   "John Doe",
+            "Post_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quaerat dolor tenetur suscipit impedit asperiores ad illum dignissimos! Incidunt dicta nulla quo corporis aspernatur a, modi sint inventore hic natus!",
+            "created": "20-October-2022"
+        }
+    },
+    "1": {
+        "userId" : "1",
+        "post": {
+            "post_title":   "John Doe",
+            "Post_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quaerat dolor tenetur suscipit impedit asperiores ad illum dignissimos! Incidunt dicta nulla quo corporis aspernatur a, modi sint inventore hic natus!",
+            "created": "20-October-2022"
+        }
+    },
+    "2": {
+        "userId" : "2",
+        "post": {
+            "post_title":   "John Doe",
+            "Post_description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quaerat dolor tenetur suscipit impedit asperiores ad illum dignissimos! Incidunt dicta nulla quo corporis aspernatur a, modi sint inventore hic natus!",
+            "created": "20-October-2022"
+        }
+    }
+}
