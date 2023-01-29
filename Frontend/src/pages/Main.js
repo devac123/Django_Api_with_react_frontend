@@ -36,7 +36,6 @@ export default function Main() {
   
   return (
     <>
-    <BrowserRouter>
       <div>
         <input type='text' onChange={()=>{setstatr(true)}}></input>
       </div>
@@ -102,7 +101,7 @@ export default function Main() {
           </div>
         </div>
       </main>
-      </BrowserRouter>
+   
     </>
   )
 }

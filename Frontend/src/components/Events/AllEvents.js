@@ -4,27 +4,20 @@ import { Link } from 'react-router-dom'
 export default function AllEvents() {
   return (
     <>
-   {/* <!-- Main content START --> */ }
-      <div className="col-md-8 col-lg-6 vstack gap-4">
-
-        { /* <!-- Event alert START -->  */ }
+      <div className="col-md-8 col-lg-6 vstack gap-4">  
         <div className="alert alert-success alert-dismissible fade show mb-0" role="alert">
           <strong>Upcoming event:</strong> The learning conference on Sep 19 2022
           <Link to="event-details" className="btn btn-xs btn-success mt-2 mt-lg-0 ms-lg-4">View event</Link>
           <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        { /* <!-- Event alert END -->  */ }
-
-          { /* <!-- Card START -->  */ }
           <div className="card h-100">
-            { /* <!-- Card header START -->  */ }
+            
             <div className="card-header d-sm-flex align-items-center text-center justify-content-sm-between border-0 pb-0">
               <h1 className="h4 card-title">Discover Events</h1>
-              { /* <!-- Button modal -->  */ }
+             
               <Link className="btn btn-primary-soft" to="#" data-bs-toggle="modal" data-bs-target="#modalCreateEvents"> <i className="fa-solid fa-plus pe-1"></i> Create event</Link>
             </div>
-            { /* <!-- Card header START -->  */ }
-            { /* <!-- Card body START -->  */ }
+            
             <div className="card-body">
 
               { /* <!-- Tab nav line -->  */ }

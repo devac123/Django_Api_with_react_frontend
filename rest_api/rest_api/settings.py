@@ -41,17 +41,14 @@ INSTALLED_APPS = [
     'django_ecommerce',
     'django_socialmedia',
     'rest_framework',
+    'corsheaders',
     'rest_framework_simplejwt.token_blacklist'
 ]
 REST_FRAMEWORK = {
-   
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
-  
 }
-
-
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
@@ -88,6 +85,7 @@ SIMPLE_JWT = {
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -95,6 +93,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://localhost:3001"
 ]
 
 ROOT_URLCONF = 'rest_api.urls'
@@ -121,11 +125,32 @@ WSGI_APPLICATION = 'rest_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#         'default': {
+#             'ENGINE': 'djongo',
+#             'NAME': 'socialmedia',
+#             'ENFORCE_SCHEMA': False,
+#             'CLIENT': {
+#                 'host': 'mongodb+srv://shubham:RfviBBkDEmJ9cJU8@cluster0.raclfdf.mongodb.net/socialmedia?retryWrites=true&w=majority'
+#             }  
+#         }
+# }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+	'default': {
+		'ENGINE': 'django.db.backends.mysql',
+		'NAME': 'django',
+		'USER': 'root',
+		'PASSWORD': '',
+		'HOST':'localhost',
+		'PORT':'3306',
+	}
 }
 
 

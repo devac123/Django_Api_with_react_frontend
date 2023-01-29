@@ -27,7 +27,10 @@ admin.site.site_header = "Rest_Api"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('createuser/', views.createusser),
-    path('Userlogin',views.Userlogin),
+    path('api/userlogin',views.Userlogin),
+    path('api/allusers',views.AllUser),
+    path('api/user/<int:id>',views.getUser),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    
 ]

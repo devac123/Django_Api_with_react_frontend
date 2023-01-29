@@ -259,6 +259,7 @@ var e = {
 
   	// START: 03 Tiny Slider
 		tinySlider: function () {
+			 console.log("fhgfjgh")
 				var $carousel = e.select('.tiny-slider-inner');
 				if (e.isVariableDefined($carousel)) {
 					var tnsCarousel = e.selectAll('.tiny-slider-inner');
@@ -473,7 +474,6 @@ var e = {
 				var sb = e.select('.sidebar-start-toggle');
 				var mode = document.getElementsByTagName("BODY")[0];
 				sb.addEventListener("click", function(){
-					    
 						mode.classList.toggle("sidebar-start-enabled");
 				}); 
 		}        
@@ -657,40 +657,7 @@ var e = {
 	// END: Avatar Image
 
 	// START: 16 Custom Scrollbar
-	customScrollbar: function () {
-
-		if (e.isVariableDefined(e.select(".custom-scrollbar"))) {
-			document.addEventListener("DOMContentLoaded", function() {
-				var instances = OverlayScrollbars(e.selectAll('.custom-scrollbar'), {
-					resize : "none",
-					scrollbars: {
-						autoHide: 'leave',
-						autoHideDelay: 200
-					},
-					overflowBehavior : {
-							x : "visible-hidden",
-							y : "scroll"
-					}
-				});
-			});
-		}
 	
-		if (e.isVariableDefined(e.select(".custom-scrollbar-y"))) {
-			document.addEventListener("DOMContentLoaded", function() {
-				var instances = OverlayScrollbars(e.selectAll('.custom-scrollbar-y'), {
-					resize : "none",
-					scrollbars: {
-						autoHide: 'leave',
-						autoHideDelay: 200
-					},
-					overflowBehavior : {
-							x : "scroll",
-							y : "scroll"
-					}
-				});
-			});
-		}	
-	},
 	// END: Custom Scrollbar
 
 	// START: 17 Toasts

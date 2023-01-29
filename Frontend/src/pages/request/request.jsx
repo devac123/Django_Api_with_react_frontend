@@ -9,3 +9,8 @@ export async function AuthCheck(data){
     return axios.post('http://localhost:3001/api/auth',{data})
 }
 
+export async function isAuth(data){
+    return axios.post('http://localhost:3001/api/auth',{data})
+}
+
+
