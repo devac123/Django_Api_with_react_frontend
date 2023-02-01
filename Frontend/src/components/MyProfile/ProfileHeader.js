@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, Link, Outlet } from 'react-router-dom'
 
 export default function ProfileHeader() {
     return (
@@ -55,17 +55,18 @@ export default function ProfileHeader() {
                 <div className="card-footer mt-3 pt-2 pb-0">
                     { /* <!-- Nav profile pages --> */ }
                     <ul className="nav nav-bottom-line align-items-center justify-content-center justify-content-md-start mb-0 border-0">
-                        <li className="nav-item"> <NavLink className="nav-link active" to="/my-profile"> Posts </NavLink> </li>
-                        <li className="nav-item"> <NavLink className="nav-link" to="/my-profile-about"> About </NavLink> </li>
-                        <li className="nav-item"> <NavLink className="nav-link" to="/my-profile-connections"> Connections <span className="badge bg-success bg-opacity-10 text-success small"> 230</span> </NavLink> </li>
-                        <li className="nav-item"> <NavLink className="nav-link" to="/my-profile-media"> Media</NavLink> </li>
-                        <li className="nav-item"> <NavLink className="nav-link" to="/my-profile-videos"> Videos</NavLink> </li>
-                        <li className="nav-item"> <NavLink className="nav-link" to="/my-profile-events"> Events</NavLink> </li>
-                        <li className="nav-item"> <NavLink className="nav-link" to="/my-profile-activity"> Activity</NavLink> </li>
+                        <li className="nav-item"> <NavLink className="nav-link active" to="my-profile"> Posts </NavLink> </li>
+                        <li className="nav-item"> <NavLink className="nav-link" to="my-profile-about"> About </NavLink> </li>
+                        <li className="nav-item"> <NavLink className="nav-link" to="my-profile-connections"> Connections <span className="badge bg-success bg-opacity-10 text-success small"> 230</span> </NavLink> </li>
+                        <li className="nav-item"> <NavLink className="nav-link" to="my-profile-media"> Media</NavLink> </li>
+                        <li className="nav-item"> <NavLink className="nav-link" to="my-profile-videos"> Videos</NavLink> </li>
+                        <li className="nav-item"> <NavLink className="nav-link" to="my-profile-events"> Events</NavLink> </li>
+                        <li className="nav-item"> <NavLink className="nav-link" to="my-profile-activity"> Activity</NavLink> </li>
                     </ul>
                 </div>
             </div>
-
+                    
+            <Outlet />        
 
         </>
     )

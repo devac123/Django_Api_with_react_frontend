@@ -1,4 +1,5 @@
 import React, { useState,useContext, createContext } from 'react'
+import { Outlet } from 'react-router-dom'
 import PostCol from '../components/Home/PostCol'
 import ProfileCol from '../components/Home/ProfileCol'
 import RecentUpdates from '../components/Home/RecentUpdates'
@@ -24,6 +25,7 @@ export default function Home(userData) {
         </div>  
        </div>
        </Context.Provider>
+       <Outlet />
     </>
   )
 }

@@ -1,12 +1,17 @@
 import {useFormik} from 'formik'
-import React from 'react'
+import React, { useEffect } from 'react'
 import * as Yup from 'yup';
 import {useNavigate} from 'react-router-dom'
-import md5 from 'md5';
-import { AuthCheck } from "./request/request";
 
 export default function SignIn() {
   const navigate = useNavigate()
+
+  useEffect(()=>{
+    if(localStorage.getItem('authToken')){
+      navigate('/')
+    }
+  })
+
   const SignInSchema = Yup.object().shape({
     email: Yup.string().required('Required').matches(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
     
@@ -20,16 +25,8 @@ export default function SignIn() {
     },
     validationSchema:  SignInSchema ,
     onSubmit: (values) => {
-      AuthCheck(values).then((res)=>{
-
-        if(res.data.length != 0){
-            localStorage.setItem("user", JSON.stringify(res.data[0]));
-            navigate("/");
-        }
-        else{
-          alert("please check Your credentials")
-        }
-      })      
+      localStorage.setItem("authToken", 'token');
+      navigate("/");  
     },
   });
 
@@ -39,7 +36,7 @@ export default function SignIn() {
         <div className="row justify-content-center text-center">
           <div className="col-12">
             { /* <!-- Title -->  */}
-            <h1 className="display-4 text-white mb-4 position-relative"></h1>
+            {/* <h1 className="display-4 text-white mb-4 position-relative"></h1> */}
             { /* <!-- SVG START -->  */}
             {/* -------------- */}
             { /* <!-- SVG END -->  */}
@@ -95,7 +92,7 @@ export default function SignIn() {
                 <div className="mb-3 d-sm-flex justify-content-between">
                   <div>
                     <input type="checkbox" className="form-check-input" id="rememberCheck" />
-                    <label className="form-check-label" for="rememberCheck"> &nbsp; Remember me?</label>
+                    <label className="form-check-label" htmlFor="rememberCheck"> &nbsp; Remember me?</label>
                   </div>
                   <a href="forgot-password.html">Forgot password?</a>
                 </div>
@@ -104,7 +101,7 @@ export default function SignIn() {
                   <button type="submit"  className="btn btn-lg btn-primary-soft">Login</button>
                 </div>
                 { /* <!-- Copyright -->  */ }
-                <p className="mb-0 mt-3">©2022 <a target="_blank" href="https://www.webestica.com/">Webestica.</a> All rights reserved</p>
+                <p className="mb-0 mt-3">©2022 <a target="_blank" href="https://www.webestica.com/" rel="noreferrer">Webestica.</a> All rights reserved</p>
               </form>
 
               { /* <!-- Form END -->  */}
