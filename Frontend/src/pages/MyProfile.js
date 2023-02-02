@@ -1,4 +1,4 @@
-import ProfileFeeds from "../components/MyProfile/ProfileFeeds"
+
 import ProfileHeader from "../components/MyProfile/ProfileHeader"
 import AboutCard from "../components/MyProfile/RightSidebar/AboutCard"
 import ProfileExperienceCard from "../components/MyProfile/RightSidebar/ProfileExperienceCard"

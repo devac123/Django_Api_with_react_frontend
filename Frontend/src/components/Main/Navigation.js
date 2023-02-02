@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 
 export default function Navigation() {
+    
+    const UserContextData = useContext(UserContext)
+    console.log(UserContextData)
     return (
         <header className="navbar-light fixed-top header-static bg-mode">
             { /* <!-- Logo Nav START -->  */}

@@ -2,6 +2,7 @@ import {useFormik} from 'formik'
 import React, { useEffect } from 'react'
 import * as Yup from 'yup';
 import {useNavigate} from 'react-router-dom'
+import { loginUser } from './request/request';
 
 export default function SignIn() {
   const navigate = useNavigate()
@@ -13,20 +14,29 @@ export default function SignIn() {
   })
 
   const SignInSchema = Yup.object().shape({
-    email: Yup.string().required('Required').matches(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
-    
-    password: Yup.string().length(8)
+    // username: Yup.string().required('Required').matches(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
+    username: Yup.string(),
+    password: Yup.string()
   });
 
   const formik = useFormik({
     initialValues: {
-      email: '',
+      username: '',
       password: ''
     },
     validationSchema:  SignInSchema ,
     onSubmit: (values) => {
-      localStorage.setItem("authToken", 'token');
-      navigate("/");  
+      console.log(values);
+      loginUser(values).then((response)=>{
+        console.log(response)
+        if(response.status === 200){
+          localStorage.setItem("authToken", response.data.access);
+          navigate("/");  
+        }
+      }).catch((error)=>{
+        console.log(error)
+      })
+      
     },
   });
 
@@ -36,7 +46,7 @@ export default function SignIn() {
         <div className="row justify-content-center text-center">
           <div className="col-12">
             { /* <!-- Title -->  */}
-            {/* <h1 className="display-4 text-white mb-4 position-relative"></h1> */}
+            <h1 className="display-4 text-white mb-4 position-relative"> </h1>
             { /* <!-- SVG START -->  */}
             {/* -------------- */}
             { /* <!-- SVG END -->  */}
@@ -50,14 +60,14 @@ export default function SignIn() {
               { /* <!-- Form START -->  */}
               <form className="mt-4" onSubmit={formik.handleSubmit}>
                 <div className="mb-3 position-relative input-group-lg">
-                  <input {...formik.getFieldProps('email')} className="form-control" placeholder="Enter email" 
+                  <input {...formik.getFieldProps('username')} className="form-control" placeholder="Enter Username" 
                   />
                   {/* --------------------- email error --------------- */}
-                  {formik.touched.email && formik.errors.email && (
-                    <div className='fv-plugins-message-container'>
-                      <div className='fv-help-block'>{formik.errors.email}</div>
-                    </div>
-                  )}
+                  {formik.touched.email && formik.errors.username && (
+                 <div className='fv-plugins-message-container'>
+                      <div className='fv-help-block'>{formik.errors.username}</div>
+                    </div> 
+                 )} 
                   {/* --------------------- email error --------------- */}
                 </div>
 

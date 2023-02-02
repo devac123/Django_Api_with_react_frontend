@@ -16,11 +16,20 @@ import Navigation from './components/Main/Navigation'
 import PrivateRoute from './pages/private/PrivateRoute'
 import ProfileInfo from './components/MyProfile/ProfileInfo'
 import NotFound from './components/NotFound'
+import ProfileFeeds from './components/MyProfile/ProfileFeeds'
+import ProfileConnections from './components/MyProfile/ProfileConnection'
+import ProfileMedia from './components/MyProfile/ProfileMedia'
+import ProfileActivity from './components/MyProfile/ProfileActivity'
+import ProfileEvents from './components/MyProfile/ProfileEvents'
+import ProfileVideos from './components/MyProfile/ProfileVideos'
+import AuthProvider from './components/context/UserContext'
+
 function App() {
   
   return (
-    
     <>
+    <AuthProvider>
+    
       <div>
         <input type='text' ></input>
       </div>
@@ -28,42 +37,32 @@ function App() {
       <main>
         <div className="container">
           <div className="row g-4">
-            {/* pages start here */}
               <Routes>
-              <Route path="/" element={<PrivateRoute  component={<Home />}/>} />
-              <Route path={"my-profile"} element={<MyProfile />} >
-                <Route path="my-profile-about" element={<ProfileInfo />} /> 
-              </Route>
+                <Route path="/" element={<PrivateRoute  component={<Home />}/>} />
+                <Route path={"my-profile"} element={<MyProfile />} >
+                  <Route path="" element={<ProfileFeeds />} /> 
+                  <Route path="my-profile-about" element={<ProfileInfo />} /> 
+                  <Route path="my-profile-connections" element={<ProfileConnections />} /> 
+                  <Route path="my-profile-media" element={<ProfileMedia />} /> 
+                  <Route path="my-profile-activity" element={<ProfileActivity />} /> 
+                  <Route path="my-profile-events" element={<ProfileEvents />} /> 
+                  <Route path="my-profile-videos" element={<ProfileVideos />} /> 
+                </Route>
 
-                
-                {/* Blog */}
                 <Route path="blog" element={<Blog />} />
-
-                {/* Events */}
                 <Route path="events" element={<Events />} /> 
-
-                {/* Notifications */}
                 <Route path="notifications" element={<Notifications />} /> 
-
-                {/* Notifications */}
                 <Route path="groups" element={<Group />}></Route>
-                
-                {/* Settings */}
                 <Route path="settings" element={<Settings />}></Route>
-
-                {/* sign-in-advance */}
                 <Route path="sign-in-advance" element={<SignIn />}></Route>
-                
-                {/* sign-Up */}
                 <Route path="sign-up" element={<SignUp />}></Route>
                 <Route path="*" element={<NotFound />}></Route>
               
               </Routes>
-            {/* pages end here */}
           </div>
         </div>
       </main>
-   
+      </AuthProvider>
     </>
   )
 
