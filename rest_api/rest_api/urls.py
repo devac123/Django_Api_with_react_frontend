@@ -29,7 +29,7 @@ urlpatterns = [
     path('createuser/', views.createusser),
     path('api/userlogin',views.Userlogin),
     path('api/allusers',views.AllUser),
-    path('api/user/<int:id>',views.getUser),
+    path('api/user/',views.getUser),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     

@@ -23,5 +23,12 @@ export function loginUser(data){
          }
       })
 }
+export function GetUser(id){
+    return axios({
+        method: "POST",
+        url:"http://localhost:8000/api/user/",
+        data:id
+      })
+}
 
 

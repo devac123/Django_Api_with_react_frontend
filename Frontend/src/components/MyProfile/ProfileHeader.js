@@ -1,8 +1,12 @@
 
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink, Link, Outlet } from 'react-router-dom'
+import { UserContext } from '../context/UserContext'
 
 export default function ProfileHeader() {
+    
+    const userContextData = useContext(UserContext)
+    // console.log(userContextData);
     return (
         <>
             <div className="card">

@@ -36,8 +36,10 @@ def AllUser(req):
     data = UserSerilizer(User.objects.all(),many=True)
     return Response(data.data)    
 
-@api_view(['GET'])
+@api_view(['POST'])
 def getUser(req):
+    id = req.data['id']
     data = CustomUserSerilizer(User.objects.get(id = id),many=False)
+    
     return Response(data.data)    
      

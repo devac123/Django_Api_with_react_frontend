@@ -4,8 +4,8 @@ import { UserContext } from "../context/UserContext";
 
 export default function Navigation() {
     
-    const UserContextData = useContext(UserContext)
-    console.log(UserContextData)
+    // const UserContextData = useContext(UserContext)
+    
     return (
         <header className="navbar-light fixed-top header-static bg-mode">
             { /* <!-- Logo Nav START -->  */}

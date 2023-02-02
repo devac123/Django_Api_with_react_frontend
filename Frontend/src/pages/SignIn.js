@@ -1,5 +1,5 @@
 import {useFormik} from 'formik'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as Yup from 'yup';
 import {useNavigate} from 'react-router-dom'
 import { loginUser } from './request/request';
@@ -14,7 +14,6 @@ export default function SignIn() {
   })
 
   const SignInSchema = Yup.object().shape({
-    // username: Yup.string().required('Required').matches(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
     username: Yup.string(),
     password: Yup.string()
   });
@@ -34,9 +33,8 @@ export default function SignIn() {
           navigate("/");  
         }
       }).catch((error)=>{
-        console.log(error)
+        console.log(error.response.data)
       })
-      
     },
   });
 
