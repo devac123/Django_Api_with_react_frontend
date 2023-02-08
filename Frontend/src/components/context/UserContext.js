@@ -5,19 +5,20 @@ export const UserContext = createContext()
 
 
 export default function AuthProvider({ children }) {
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState()
 
     const Authtoken = localStorage.getItem('authToken')
-    if (Authtoken) {
-        var decoded = jwt_decode(Authtoken);
-        GetUser({ id: decoded?.user_id }).then((response) => {
-            console.log(response)
-                //  setUser(response.data)  
-
-        }).catch((error) => {
-            console.log(error)
-        })
-    }
+    useEffect(()=>{
+       if(Authtoken){
+            var decoded = jwt_decode(Authtoken);
+            GetUser({ id: decoded?.user_id }).then((response) => {
+                setUser(response.data)  
+            }).catch((error) => {
+                console.log(error)
+            })
+        }
+    },[Authtoken])
+    
 
     return (
         <UserContext.Provider value={user}>

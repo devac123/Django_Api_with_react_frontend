@@ -4,9 +4,9 @@ import { NavLink, Link, Outlet } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
 
 export default function ProfileHeader() {
-    
     const userContextData = useContext(UserContext)
-    // console.log(userContextData);
+    console.log(userContextData)
+    const months = ["Jan", "Febr", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
     return (
         <>
             <div className="card">
@@ -26,8 +26,8 @@ export default function ProfileHeader() {
                         </div>
                         <div className="ms-sm-4 mt-sm-3">
                             { /* <!-- Info --> */ }
-                            <h1 className="mb-0 h5">Sam Lanson <i className="bi bi-patch-check-fill text-success small"></i></h1>
-                            <p>250 connections</p>
+                            <h1 className="mb-0 h5">{userContextData ? userContextData?.first_name : '' }&nbsp;{userContextData ? userContextData?.last_name : ''} <i className="bi bi-patch-check-fill text-success small"></i></h1>
+                            {/* <p>250 connections</p> */}
                         </div>
                         { /* <!-- Button --> */ }
                         <div className="d-flex mt-3 justify-content-center ms-sm-auto">
@@ -52,7 +52,8 @@ export default function ProfileHeader() {
                     <ul className="list-inline mb-0 text-center text-sm-start mt-3 mt-sm-0">
                         <li className="list-inline-item"><i className="bi bi-briefcase me-1"></i> Lead Developer</li>
                         <li className="list-inline-item"><i className="bi bi-geo-alt me-1"></i> New Hampshire</li>
-                        <li className="list-inline-item"><i className="bi bi-calendar2-plus me-1"></i> Joined on Nov 26, 2019</li>
+                        <li className="list-inline-item"><i className="bi bi-calendar2-plus me-1"></i> {userContextData ? 'Joined on ' + months[new Date(userContextData?.date_joined).getMonth()] + ' ' + new Date(userContextData?.date_joined).getDate()+ ', ' + new Date(userContextData?.date_joined).getFullYear() : ""}</li>
+                        {/* Joined on Nov 26, 2019 */}
                     </ul>
                 </div>
                 { /* <!-- Card body END --> */ }
