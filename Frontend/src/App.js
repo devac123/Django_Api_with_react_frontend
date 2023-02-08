@@ -23,13 +23,16 @@ import ProfileActivity from './components/MyProfile/ProfileActivity'
 import ProfileEvents from './components/MyProfile/ProfileEvents'
 import ProfileVideos from './components/MyProfile/ProfileVideos'
 import AuthProvider from './components/context/UserContext'
+import FeedCreateModal from './components/MyProfile/FeedCreateModal'
+import EventCreateModal from './components/MyProfile/EventCreateModal'
 
 function App() {
   
   return (
     <>
     <AuthProvider>
-    
+    <FeedCreateModal />
+    <EventCreateModal />
       <div>
         <input type='text' ></input>
       </div>

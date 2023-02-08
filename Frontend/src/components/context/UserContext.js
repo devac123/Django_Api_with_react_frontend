@@ -11,8 +11,8 @@ export default function AuthProvider({ children }) {
     useEffect(()=>{
        if(Authtoken){
             var decoded = jwt_decode(Authtoken);
-            GetUser({ id: decoded?.user_id }).then((response) => {
-                setUser(response.data)  
+            GetUser({ id: decoded?.user_id }).then(async (response) => {
+                await setUser(response.data)  
             }).catch((error) => {
                 console.log(error)
             })
