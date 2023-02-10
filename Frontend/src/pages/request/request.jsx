@@ -32,3 +32,10 @@ export function GetUser(id){
 }
 
 
+export function createPost(postData){
+    return axios({
+        method: "POST",
+        url:"http://localhost:8000/api/createpost/",
+        data: postData
+      })
+}
